@@ -1,0 +1,36 @@
+body{
+    background-color: lightgrey;
+}
+.nav-link{
+    color: orange!important;
+}
+
+.nav-link:hover{
+    color: yellow;
+    background-color: black;
+    border-radius: 10px;
+}
+
+#showcase{
+
+    min-height: 500px;
+    background: url("../images/adm2.jpg") no-repeat;
+}
+
+#showcase h1{
+    text-align: center;
+    color: red;
+    margin-top: 80px;
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+footer{
+   text-align: center;
+    margin-top: 20px;
+    background-color: orange;
+    color: black;
+    font-size: 40px;
+    font-family: Algerian;
+    text-shadow: 5px 5px 8px red;
+}

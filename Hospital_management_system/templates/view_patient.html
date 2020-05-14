@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+
+{% block body %}
+  <br>
+<h2 style="text-align: center;font-family: Algerian;color: red">VIEW PATIENTS</h2>
+    <br>
+<table align="center" id="example">
+<thead>
+<tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>GENDER</th>
+    <th>MOBILE NO</th>
+    <th>ADDRESS</th>
+    <th>DELETE</th>
+</tr>
+</thead>
+{% for x in pt %}
+    <tbody>
+    <tr>
+    <td>{{ x.p_no }}</td>
+    <td>{{ x.p_name }}</td>
+    <td>{{ x.gender }}</td>
+    <td>{{ x.p_contactno }}</td>
+    <td>{{ x.p_address }}</td>
+        <td><a href="{% url 'delete_patient' %}?rno={{ x.p_no }}"  onclick="return confirm('Are u sure wanted to delete?')" class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+{% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+
+{% block body %}
+<br>
+    <h2 style="text-align: center;font-family: Algerian;color: red">ADD DOCTOR</h2>
+    <br>
+    <form method="post">
+    {% csrf_token %}
+    <table align="center">
+    <tr>
+        <th style="font-size: 30px;text-align: center">NAME</th>
+        <td><input type="text" required name="dt_name" placeholder="enter u r name"></td>
+    </tr>
+    <tr>
+        <th style="font-size: 30px;text-align: center;">MOBILE NO</th>
+        <td><input type="tel" placeholder="+(91)" name="dt_cntno" required></td>
+    </tr>
+    <tr>
+        <th style="font-size: 30px">SPECIALIZATION</th>
+        <td><input type="text" placeholder="......." required name="dt_spltn"></td>
+    </tr>
+    <tr>
+    <th colspan="2" style="text-align: center"><button type="submit" class="btn btn-primary">SUBMIT</button></th>
+</tr>
+    </table>
+    </form>
+    {% ifequal error "no"  %}
+
+        <script>
+        alert('added successfully!!!!');
+        window.location=('{% url 'view_doctor' %}');
+        </script>
+    {% endifequal %}
+    {% ifequal error "yes"  %}
+    <script>
+    alert('invalid details');
+    </script>
+    {% endifequal %}
+{% endblock %}

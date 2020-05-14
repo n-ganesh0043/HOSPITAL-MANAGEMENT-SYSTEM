@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+
+{% block body %}
+<br>
+    <h2 style="text-align: center;font-family: Algerian;color: red">ADD APPOINTMENT</h2>
+    <br>
+    <form method="post">
+    {% csrf_token %}
+
+    <table align="center">
+    <tr>
+        <th>DOCTORS</th>
+        <th><select name="doctor">
+            {% for x in doctor %}
+            <option value="{{ x.d_name }}">{{ x.d_name }} [{{ x.d_no }}]</option>
+            {% endfor %}
+        </select></th>
+    </tr>
+    <tr>
+        <th>PATIENTS</th>
+        <th><select name="patient">
+            {% for x in patient %}
+            <option value="{{ x.p_name }}">{{ x.p_name }} [{{ x.p_no }}]</option>
+            {% endfor %}
+        </select> </th>
+    </tr>
+    <tr>
+    <th colspan="2" style="text-align: center"><button type="submit" class="btn btn-primary">SUBMIT</button></th>
+</tr>
+    </table>
+    </form>
+    {% ifequal error "no"  %}
+        <script>
+        alert('record added successfully!!!');
+        window.location=('{% url 'view_appointment' %}');
+    </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+        <script>
+        alert('something went wrong');
+        </script>
+    {% endifequal %}
+{% endblock %}

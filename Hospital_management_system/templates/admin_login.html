@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <br>
+    <form method="post">
+    {% csrf_token %}
+<h2 style="text-align: center">ADMIN LOGIN</h2>
+    <br>
+<table align="center">
+<tr>
+    <th style="font-size: 30px">USERNAME</th>
+    <th><input type="text" required name="adm_un" placeholder="enter u r username"></th>
+</tr>
+<tr>
+    <th style="font-size: 30px">PASSWORD</th>
+    <th><input type="password" placeholder="************" name="adm_psd" required></th>
+</tr>
+<tr>
+    <th colspan="2" style="text-align: center"><button type="submit" class="btn btn-primary">LOGIN</button></th>
+</tr>
+</table>
+    </form>
+    {% ifequal error "no" %}
+        <script>
+        alert('logged in successfully');
+        window.location=('{% url 'admin_home' %}');
+        </script>
+    {% endifequal %}
+    {% ifequal error "yes" %}
+        <script>
+        alert('INVALID LOGIN DETAILS!! TRY AGAIN');
+        </script>
+    {% endifequal %}
+{% endblock %}

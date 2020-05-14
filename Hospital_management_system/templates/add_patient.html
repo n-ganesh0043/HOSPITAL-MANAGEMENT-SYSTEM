@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+
+{% block body %}
+<br>
+    <h2 style="text-align: center;font-family: Algerian;color: red">ADD PATIENT</h2>
+    <br>
+    <form method="post">
+    {% csrf_token %}
+  <table align="center">
+   <tr>
+        <th style="font-size: 30px;text-align: center">NAME</th>
+        <td><input type="text" required name="pt_name" placeholder="enter u r name"></td>
+    </tr>
+   <tr>
+        <th style="font-size: 30px;text-align: center">GENDER</th>
+        <th><input type="radio" name="pt_gender" value="male" checked>MALE
+        <input type="radio" name="pt_gender" value="female">FEMALE
+        </th>
+    </tr>
+   <tr>
+        <th style="font-size: 30px;text-align: center">CONTACT NO</th>
+        <td><input type="tel" required name="pt_cnt" placeholder="+(91)"></td>
+    </tr>
+  <tr>
+        <th style="font-size: 30px;text-align: center">ADDRESS</th>
+      <td>
+      <textarea required name="pt_adr"></textarea>
+      </td>
+  </tr>
+   <tr>
+    <th colspan="2" style="text-align: center"><button type="submit" class="btn btn-primary">SUBMIT</button></th>
+</tr>
+  </table>
+    </form>
+
+
+    {% ifequal error "no"  %}
+        <script>
+        alert('record added successfully!!!');
+        window.location=('{% url 'view_patient' %}');
+    </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+        <script>
+        alert('something went wrong');
+        </script>
+    {% endifequal %}
+
+{% endblock %}

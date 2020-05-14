@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+<br><br><br>
+    <h2 style="color: red;font-family: 'Arial Black';text-align: center">ABOUT US</h2>
+    <br>
+    <table align="right" border="0">
+    <tr>
+        <th rowspan="2">
+            <img src="{% static 'images/doct1.jpg' %}" width="400px" height="500px">
+        </th>
+    </tr>
+    <tr>
+        <th></th>
+        <th style="font-family: Algerian;font-size: 25px;color: blue">Ah, Twitter. Moms use it, dads use it, even Derek uses it, too. It has become an equivalent of the office water cooler on the internet. People fire it up to exchange ideas, discuss hot topics or enjoy small talk. Recently, in the ever-increasing real of tweets, a new trend has emerged. Devoted medics began using the #ShareAStoryInOneTweet hashtag to post touching work moments, and they remind us why we're incredibly blessed to have them.
+
+Doctors, nurses, and other health professionals are flooding the social network, explaining their passion for saving lives, and it's clear that for every patient complaint they can provide countless examples of sacrifice. Scroll down to check out the soul-stirring tweet-stories and upvote your favorites.</th>
+    </tr>
+    </table>
+{% endblock %}

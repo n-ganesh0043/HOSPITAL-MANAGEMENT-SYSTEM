@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <br>
+<h2 style="text-align: center;font-family: Algerian;color: red">VIEW DOCTORS</h2>
+    <br>
+    <table align="center" id="example">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>MOBILE NO</th>
+        <th>SPECIALIZATION</th>
+        <th>DELETE</th>
+    </tr>
+    </thead>
+    {% for i in dct %}
+        <tbody>
+        <tr>
+        <td>{{ i.d_no }}</td>
+        <td>{{ i.d_name }}</td>
+        <td>{{ i.d_contactno }}</td>
+        <td>{{ i.d_specialization }}</td>
+        <td><a href="{% url 'delete_doctor' %}?rno={{ i.d_no }}" class="btn btn-danger" onclick="return confirm('Are  u really want to delete?')">Delete</a></td>
+        </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+{% endblock %}
